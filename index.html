@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web JB Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .banner {
+            width: 100%;
+            height: 150px;
+            background: url('https://logos.flamingtext.com/Country-Logos/ID-Logo.png') no-repeat center;
+            background-size: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #1f1f1f;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .nav a:hover {
+            background-color: #ff4500;
+        }
+        .content {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        .slider {
+            position: relative;
+            width: 60%;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.5);
+        }
+        .slides {
+            display: flex;
+            width: 400%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 25%;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+        }
+        .footer a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner"></div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Link Group</a>
+            <a href="#">Media Sosial</a>
+            <a href="#">Web Perkenalan</a>
+            <a href="#">Tujuan JB</a>
+        </nav>
+        <div class="content">
+            <p>Selamat datang di Web JB Link! Pilih menu di atas untuk mulai eksplorasi.</p>
+        </div>
+        
+        <div class="slider">
+            <div class="slides">
+                <img src="https://i.pinimg.com/originals/12/99/a4/1299a42d21fbe89d8351baa5e363c83f.png" alt="Slide 1">
+                <img src="https://wallpapercave.com/wp/wp5195928.jpg" alt="Slide 2">
+                <img src="https://static.vecteezy.com/system/resources/previews/000/302/095/original/vector-ramadan-kareem-design-templates-for-ramadan-celebration.jpg" alt="Slide 3">
+                <img src="https://static.vecteezy.com/system/resources/previews/003/741/226/original/jb-logo-monogram-with-slash-style-design-template-free-vector.jpg" alt="Slide 4">
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Temukan lebih banyak informasi dan bergabung dengan komunitas kami.</p>
+            <p>Ikuti kami di <a href="#">Instagram</a> | <a href="#">WhatsApp</a></p>
+        </div>
+    </div>
+
+    <script>
+        let index = 0;
+        function slideShow() {
+            const slides = document.querySelector('.slides');
+            index = (index + 1) % 4;
+            slides.style.transform = `translateX(${-index * 25}%)`;
+        }
+        setInterval(slideShow, 3000);
+    </script>
+</body>
+</html>
