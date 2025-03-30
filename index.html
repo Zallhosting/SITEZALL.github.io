@@ -3,114 +3,1526 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web JB Link</title>
+    <title>PoinShop.id - Top Up Game & Produk Digital Terlengkap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #3498db;
+            margin: 15px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
             color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-buy {
+            background-color: #e74c3c;
+            color: white;
+            width: 100%;
+            padding: 8px 0;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .btn-buy:hover {
+            background-color: #c0392b;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: auto;
+        }
+
+        .search-bar {
+            display: flex;
+            width: 40%;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
             text-align: center;
         }
-        .container {
-            margin-top: 50px;
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
         }
-        .nav {
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .category-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: #3498db;
+            color: white;
+        }
+
+        .category-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* Products Section */
+        .popular-products {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            margin: 15px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .discounted-price {
+            color: #e74c3c;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .tax-info {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Game Products Section */
+        .game-products {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .game-tabs {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            background-color: #1f1f1f;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.5);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
-        .nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
+
+        .game-tab {
+            padding: 10px 20px;
+            background: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
             border-radius: 5px;
-            transition: 0.3s;
+            transition: all 0.3s;
         }
-        .nav a:hover {
-            background-color: #ff4500;
-            transform: scale(1.1);
+
+        .game-tab.active {
+            background: #3498db;
+            color: white;
         }
-        .content {
-            margin-top: 30px;
-            font-size: 20px;
+
+        .game-tab:hover:not(.active) {
+            background: #ddd;
         }
-        .slider {
-            position: relative;
-            width: 60%;
-            margin: 30px auto;
-            overflow: hidden;
+
+        .game-content {
+            display: none;
+        }
+
+        .game-content.active {
+            display: block;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .price-table th, .price-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .price-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .price-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .price-table tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.5);
+            transition: all 0.3s ease;
         }
-        .slides {
-            display: flex;
-            width: 400%;
-            transition: transform 0.5s ease-in-out;
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        .slides img {
-            width: 25%;
-        }
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #1f1f1f;
-            border-radius: 10px;
-        }
-        .footer a {
-            color: #ff4500;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .banner {
-            font-size: 50px;
-            font-weight: bold;
-            text-shadow: 4px 4px 10px rgba(255, 0, 0, 0.7);
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: #3498db;
             margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-item {
+            min-width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            scroll-snap-align: start;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            font-size: 3rem;
+            color: #3498db;
+            opacity: 0.2;
+            position: absolute;
+            top: -15px;
+            left: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author span {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #3498db;
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #3498db;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+        }
+
+        .payment-methods img {
+            height: 30px;
+            width: auto;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            display: none;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 15px 20px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            text-align: right;
+            background-color: #f8f9fa;
+        }
+        
+        .btn-confirm {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .btn-confirm:hover {
+            background-color: #27ae60;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .search-bar {
+                width: 60%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        
+            .search-bar {
+                width: 100%;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .price-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="banner">INDONESIA</div>
-        <nav class="nav">
-            <a href="#">Home</a>
-            <a href="#">Link Group</a>
-            <a href="#">Media Sosial</a>
-            <a href="#">Web Perkenalan</a>
-            <a href="#">Tujuan JB</a>
-        </nav>
-        <div class="content">
-            <p>Selamat datang di Web JB Link! Pilih menu di atas untuk mulai eksplorasi.</p>
-        </div>
-        
-        <div class="slider">
-            <div class="slides">
-                <img src="https://i.pinimg.com/originals/12/99/a4/1299a42d21fbe89d8351baa5e363c83f.png" alt="Slide 1">
-                <img src="https://static.vecteezy.com/system/resources/previews/000/302/095/original/vector-ramadan-kareem-design-templates-for-ramadan-celebration.jpg" alt="Slide 2">
-                <img src="https://cdn.textstudio.com/output/sample/normal/8/9/4/4/2025-logo-275-14498.png" alt="Slide 3">
-                <img src="https://img.freepik.com/vector-premium/logotipo-jb_940147-16.jpg?w=2000" alt="Slide 4">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="https://poinshop.id/assets/img/logo.png" alt="PoinShop.id" width="150">
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari produk...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="#"><i class="fas fa-user"></i> Akun</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Keranjang</a>
+                <a href="#"><i class="fas fa-history"></i> Riwayat</a>
             </div>
         </div>
-        
-        <div class="footer">
-            <p>Temukan lebih banyak informasi dan bergabung dengan komunitas kami.</p>
-            <p>Ikuti kami di <a href="#">Instagram</a> | <a href="#">WhatsApp</a></p>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Top Up Game & Produk Digital Terlengkap</h1>
+                <p>Free Fire, Mobile Legends, PUBG, Pulsa, Paket Data, Token PLN, dan masih banyak lagi</p>
+                <div class="cta-buttons">
+                    <a href="#game-section" class="btn-primary">Top Up Game</a>
+                    <a href="#products-section" class="btn-secondary">Lihat Produk</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.ibb.co/6n0hL3G/game-topup.png" alt="Top Up Game">
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Produk -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kategori Produk</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="https://i.ibb.co/0jq6R0N/free-fire.png" alt="Free Fire">
+                    <span>Free Fire</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://i.ibb.co/7Yh9w3T/mobile-legends.png" alt="Mobile Legends">
+                    <span>Mobile Legends</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://i.ibb.co/6RJQ3y0/pubg.png" alt="PUBG Mobile">
+                    <span>PUBG Mobile</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://i.ibb.co/7Yh9w3T/pulsa.png" alt="Pulsa">
+                    <span>Pulsa</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://i.ibb.co/0jq6R0N/data.png" alt="Paket Data">
+                    <span>Paket Data</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://i.ibb.co/6RJQ3y0/pln.png" alt="Token PLN">
+                    <span>Token PLN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Products Section -->
+    <section id="game-section" class="game-products">
+        <div class="container">
+            <h2 class="section-title">Top Up Game</h2>
+            
+            <div class="game-tabs">
+                <button class="game-tab active" onclick="openGameTab('ff')">Free Fire</button>
+                <button class="game-tab" onclick="openGameTab('ml')">Mobile Legends</button>
+                <button class="game-tab" onclick="openGameTab('pubg')">PUBG Mobile</button>
+            </div>
+            
+            <!-- Free Fire Tab -->
+            <div id="ff" class="game-content active">
+                <h3>Free Fire Diamonds</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Jumlah Diamond</th>
+                            <th>Harga Normal</th>
+                            <th>Harga Promo</th>
+                            <th>Pajak</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5 Diamond</td>
+                            <td>Rp 1.000</td>
+                            <td>Rp 900</td>
+                            <td>Rp 100</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>12 Diamond</td>
+                            <td>Rp 2.000</td>
+                            <td>Rp 1.800</td>
+                            <td>Rp 200</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>25 Diamond</td>
+                            <td>Rp 3.000</td>
+                            <td>Rp 2.700</td>
+                            <td>Rp 300</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>50 Diamond</td>
+                            <td>Rp 5.000</td>
+                            <td>Rp 4.500</td>
+                            <td>Rp 500</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>70 Diamond</td>
+                            <td>Rp 10.000</td>
+                            <td>Rp 9.000</td>
+                            <td>Rp 1.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>140 Diamond</td>
+                            <td>Rp 20.000</td>
+                            <td>Rp 18.000</td>
+                            <td>Rp 2.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>210 Diamond</td>
+                            <td>Rp 30.000</td>
+                            <td>Rp 27.000</td>
+                            <td>Rp 3.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>355 Diamond</td>
+                            <td>Rp 50.000</td>
+                            <td>Rp 45.000</td>
+                            <td>Rp 5.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>720 Diamond</td>
+                            <td>Rp 100.000</td>
+                            <td>Rp 90.000</td>
+                            <td>Rp 10.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>1450 Diamond</td>
+                            <td>Rp 200.000</td>
+                            <td>Rp 180.000</td>
+                            <td>Rp 20.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>2180 Diamond</td>
+                            <td>Rp 300.000</td>
+                            <td>Rp 270.000</td>
+                            <td>Rp 30.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>3640 Diamond</td>
+                            <td>Rp 500.000</td>
+                            <td>Rp 450.000</td>
+                            <td>Rp 50.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>7290 Diamond</td>
+                            <td>Rp 1.000.000</td>
+                            <td>Rp 900.000</td>
+                            <td>Rp 100.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>14.580 Diamond</td>
+                            <td>Rp 2.000.000</td>
+                            <td>Rp 1.800.000</td>
+                            <td>Rp 200.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>36.450 Diamond</td>
+                            <td>Rp 5.000.000</td>
+                            <td>Rp 4.500.000</td>
+                            <td>Rp 500.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Mobile Legends Tab -->
+            <div id="ml" class="game-content">
+                <h3>Mobile Legends Diamonds</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Jumlah Diamond</th>
+                            <th>Harga Normal</th>
+                            <th>Harga Promo</th>
+                            <th>Pajak</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5 Diamond</td>
+                            <td>Rp 1.000</td>
+                            <td>Rp 900</td>
+                            <td>Rp 100</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>12 Diamond</td>
+                            <td>Rp 2.000</td>
+                            <td>Rp 1.800</td>
+                            <td>Rp 200</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>25 Diamond</td>
+                            <td>Rp 3.000</td>
+                            <td>Rp 2.700</td>
+                            <td>Rp 300</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>50 Diamond</td>
+                            <td>Rp 5.000</td>
+                            <td>Rp 4.500</td>
+                            <td>Rp 500</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>70 Diamond</td>
+                            <td>Rp 10.000</td>
+                            <td>Rp 9.000</td>
+                            <td>Rp 1.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>140 Diamond</td>
+                            <td>Rp 20.000</td>
+                            <td>Rp 18.000</td>
+                            <td>Rp 2.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>210 Diamond</td>
+                            <td>Rp 30.000</td>
+                            <td>Rp 27.000</td>
+                            <td>Rp 3.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>355 Diamond</td>
+                            <td>Rp 50.000</td>
+                            <td>Rp 45.000</td>
+                            <td>Rp 5.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>720 Diamond</td>
+                            <td>Rp 100.000</td>
+                            <td>Rp 90.000</td>
+                            <td>Rp 10.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>1450 Diamond</td>
+                            <td>Rp 200.000</td>
+                            <td>Rp 180.000</td>
+                            <td>Rp 20.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>2180 Diamond</td>
+                            <td>Rp 300.000</td>
+                            <td>Rp 270.000</td>
+                            <td>Rp 30.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>3640 Diamond</td>
+                            <td>Rp 500.000</td>
+                            <td>Rp 450.000</td>
+                            <td>Rp 50.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>7290 Diamond</td>
+                            <td>Rp 1.000.000</td>
+                            <td>Rp 900.000</td>
+                            <td>Rp 100.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>14.580 Diamond</td>
+                            <td>Rp 2.000.000</td>
+                            <td>Rp 1.800.000</td>
+                            <td>Rp 200.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>36.450 Diamond</td>
+                            <td>Rp 5.000.000</td>
+                            <td>Rp 4.500.000</td>
+                            <td>Rp 500.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- PUBG Mobile Tab -->
+            <div id="pubg" class="game-content">
+                <h3>PUBG Mobile UC</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Jumlah UC</th>
+                            <th>Harga Normal</th>
+                            <th>Harga Promo</th>
+                            <th>Pajak</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5 UC</td>
+                            <td>Rp 1.000</td>
+                            <td>Rp 900</td>
+                            <td>Rp 100</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>12 UC</td>
+                            <td>Rp 2.000</td>
+                            <td>Rp 1.800</td>
+                            <td>Rp 200</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>25 UC</td>
+                            <td>Rp 3.000</td>
+                            <td>Rp 2.700</td>
+                            <td>Rp 300</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>50 UC</td>
+                            <td>Rp 5.000</td>
+                            <td>Rp 4.500</td>
+                            <td>Rp 500</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>70 UC</td>
+                            <td>Rp 10.000</td>
+                            <td>Rp 9.000</td>
+                            <td>Rp 1.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>140 UC</td>
+                            <td>Rp 20.000</td>
+                            <td>Rp 18.000</td>
+                            <td>Rp 2.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>210 UC</td>
+                            <td>Rp 30.000</td>
+                            <td>Rp 27.000</td>
+                            <td>Rp 3.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>355 UC</td>
+                            <td>Rp 50.000</td>
+                            <td>Rp 45.000</td>
+                            <td>Rp 5.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>720 UC</td>
+                            <td>Rp 100.000</td>
+                            <td>Rp 90.000</td>
+                            <td>Rp 10.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>1450 UC</td>
+                            <td>Rp 200.000</td>
+                            <td>Rp 180.000</td>
+                            <td>Rp 20.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>2180 UC</td>
+                            <td>Rp 300.000</td>
+                            <td>Rp 270.000</td>
+                            <td>Rp 30.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>3640 UC</td>
+                            <td>Rp 500.000</td>
+                            <td>Rp 450.000</td>
+                            <td>Rp 50.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>7290 UC</td>
+                            <td>Rp 1.000.000</td>
+                            <td>Rp 900.000</td>
+                            <td>Rp 100.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>14.580 UC</td>
+                            <td>Rp 2.000.000</td>
+                            <td>Rp 1.800.000</td>
+                            <td>Rp 200.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                        <tr>
+                            <td>36.450 UC</td>
+                            <td>Rp 5.000.000</td>
+                            <td>Rp 4.500.000</td>
+                            <td>Rp 500.000</td>
+                            <td><button class="btn-buy">Beli</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Populer -->
+    <section id="products-section" class="popular-products">
+        <div class="container">
+            <h2 class="section-title">Produk Digital Lainnya</h2>
+            <div class="product-grid">
+                <!-- Produk 1 -->
+                <div class="product-card">
+                    <div class="product-badge">HOT</div>
+                    <img src="https://i.ibb.co/7Yh9w3T/xl.png" alt="XL 10GB">
+                    <h3>XL 10GB 30 Hari</h3>
+                    <div class="product-price">
+                        <span class="original-price">Rp 45.000</span>
+                        <span class="discounted-price">Rp 39.900</span>
+                        <span class="tax-info">Termasuk pajak Rp 4.100</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+                
+                <!-- Produk 2 -->
+                <div class="product-card">
+                    <div class="product-badge">NEW</div>
+                    <img src="https://i.ibb.co/0jq6R0N/telkomsel.png" alt="Telkomsel 5GB">
+                    <h3>Telkomsel 5GB 7 Hari</h3>
+                    <div class="product-price">
+                        <span class="original-price">Rp 25.000</span>
+                        <span class="discounted-price">Rp 22.500</span>
+                        <span class="tax-info">Termasuk pajak Rp 2.500</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+                
+                <!-- Produk 3 -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/6RJQ3y0/pln.png" alt="Token PLN 20K">
+                    <h3>Token PLN 20.000</h3>
+                    <div class="product-price">
+                        <span class="original-price">Rp 22.000</span>
+                        <span class="discounted-price">Rp 20.900</span>
+                        <span class="tax-info">Termasuk pajak Rp 1.100</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+                
+                <!-- Produk 4 -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/7Yh9w3T/pulsa.png" alt="Pulsa All Operator">
+                    <h3>Pulsa All Operator 50.000</h3>
+                    <div class="product-price">
+                        <span class="original-price">Rp 52.000</span>
+                        <span class="discounted-price">Rp 50.000</span>
+                        <span class="tax-info">Termasuk pajak Rp 2.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Unggulan -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih PoinShop.id?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Proses Cepat</h3>
+                    <p>Pembelian produk hanya membutuhkan waktu 1-3 menit</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Aman & Terpercaya</h3>
+                    <p>Transaksi aman dengan sistem keamanan berlapis</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>CS 24 Jam</h3>
+                    <p>Customer Service siap membantu kapan saja</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tags"></i>
+                    <h3>Harga Terbaik</h3>
+                    <p>Harga kompetitif dengan diskon menarik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Pelanggan Kami?</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Cepat banget prosesnya, ga sampe 2 menit udah masuk diamond Free Fire nya. Recommended banget!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Dewi Lestari">
+                        <span>Dewi Lestari</span>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Pertama kali top up ML disini, ternyata lebih murah dari pada beli di market place. Mantap!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Budi Santoso">
+                        <span>Budi Santoso</span>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Proses top up PUBG Mobile cepat dan harga lebih murah dari official store. Bakal beli lagi disini!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Rizky Pratama">
+                        <span>Rizky Pratama</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tentang Kami</h3>
+                    <p>PoinShop.id adalah platform belanja produk digital dan top up game terpercaya sejak 2018 dengan jutaan transaksi sukses.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Top Up Free Fire</a></li>
+                        <li><a href="#">Top Up Mobile Legends</a></li>
+                        <li><a href="#">Top Up PUBG Mobile</a></li>
+                        <li><a href="#">Pulsa All Operator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="#">Cara Top Up</a></li>
+                        <li><a href="#">Pembayaran</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hubungi Kami</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> cs@poinshop.id</li>
+                        <li><i class="fas fa-phone"></i> 0812-3456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PoinShop.id. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <img src="https://i.ibb.co/0jq6R0N/bca.png" alt="BCA">
+                    <img src="https://i.ibb.co/7Yh9w3T/mandiri.png" alt="Mandiri">
+                    <img src="https://i.ibb.co/6RJQ3y0/bri.png" alt="BRI">
+                    <img src="https://i.ibb.co/0jq6R0N/gopay.png" alt="Gopay">
+                    <img src="https://i.ibb.co/7Yh9w3T/ovo.png" alt="OVO">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Pembelian -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Beli Produk</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modal-description">Detail produk akan muncul disini</p>
+                <div class="form-group">
+                    <label for="phone-number">Nomor Handphone/ID Game</label>
+                    <input type="text" id="phone-number" placeholder="08xxxxxxxxxx / ID Game">
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Metode Pembayaran</label>
+                    <select id="payment-method">
+                        <option value="bca">BCA</option>
+                        <option value="mandiri">Mandiri</option>
+                        <option value="bri">BRI</option>
+                        <option value="gopay">Gopay</option>
+                        <option value="ovo">OVO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-confirm">Konfirmasi Pembelian</button>
+            </div>
         </div>
     </div>
 
     <script>
-        let index = 0;
-        function slideShow() {
-            const slides = document.querySelector('.slides');
-            index = (index + 1) % 4;
-            slides.style.transform = `translateX(${-index * 25}%)`;
+        // Fungsi untuk tab game
+        function openGameTab(gameId) {
+            // Sembunyikan semua konten game
+            document.querySelectorAll('.game-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Nonaktifkan semua tab
+            document.querySelectorAll('.game-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Tampilkan konten yang dipilih dan aktifkan tab
+            document.getElementById(gameId).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
-        setInterval(slideShow, 3000);
+        
+        // Fungsi untuk menangani pembelian produk
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', function() {
+                let productName, productPrice;
+                
+                // Cek apakah ini produk game (dalam tabel) atau produk biasa
+                if (this.closest('tr')) {
+                    const row = this.closest('tr');
+                    const cells = row.querySelectorAll('td');
+                    productName = cells[0].textContent;
+                    productPrice = cells[2].textContent;
+                } else {
+                    productName = this.closest('.product-card').querySelector('h3').textContent;
+                    productPrice = this.closest('.product-card').querySelector('.discounted-price').textContent;
+                }
+                
+                // Update modal
+                document.getElementById('modal-title').textContent = `Beli ${productName}`;
+                document.getElementById('modal-description').textContent = `Harga: ${productPrice}`;
+                
+                // Tampilkan modal
+                document.querySelector('.modal-overlay').style.display = 'flex';
+            });
+        });
+        
+        // Tutup modal
+        document.querySelector('.close-modal').addEventListener('click', closeModal);
+        document.querySelector('.modal-overlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        
+        function closeModal() {
+            document.querySelector('.modal-overlay').style.display = 'none';
+        }
+        
+        // Konfirmasi pembelian
+        document.querySelector('.btn-confirm').addEventListener('click', function() {
+            const phoneNumber = document.getElementById('phone-number').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const productName = document.getElementById('modal-title').textContent.replace('Beli ', '');
+            
+            if (!phoneNumber) {
+                alert('Harap masukkan nomor handphone/ID game');
+                return;
+            }
+            
+            // Simulasi proses pembelian
+            alert(`Pembelian ${productName} untuk ${phoneNumber} berhasil!\nMetode Pembayaran: ${paymentMethod}\nSilakan lakukan pembayaran.`);
+            closeModal();
+        });
+        
+        // Animasi scroll untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fitur pencarian
+        const searchInput = document.querySelector('.search-bar input');
+        const searchButton = document.querySelector('.search-bar button');
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+        
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if (query) {
+                alert(`Menampilkan hasil pencarian untuk: ${query}`);
+                // Dalam implementasi nyata, ini akan mengarahkan ke halaman pencarian
+                // window.location.href = `/search?q=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        // Slider testimoni otomatis
+        function initTestimonialSlider() {
+            const slider = document.querySelector('.testimonial-slider');
+            if (!slider) return;
+            
+            let currentIndex = 0;
+            const items = document.querySelectorAll('.testimonial-item');
+            const itemCount = items.length;
+            
+            function slideTo(index) {
+                currentIndex = index;
+                const offset = -currentIndex * (items[0].offsetWidth + 30);
+                slider.style.transform = `translateX(${offset}px)`;
+            }
+            
+            // Otomatis geser setiap 5 detik
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % itemCount;
+                slideTo(currentIndex);
+            }, 5000);
+        }
+        
+        // Inisialisasi saat DOM selesai dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            initTestimonialSlider();
+            
+            // Animasi saat scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.feature-item, .product-card, .category-item');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state
+            document.querySelectorAll('.feature-item, .product-card, .category-item').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Trigger once on load
+        });
     </script>
 </body>
 </html>
