@@ -1,541 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome | zallshop</title>
+    <title>zallshop - Bergabung dengan Komunitas Kami</title>
     <style>
         :root {
-            --primary-color: #4361ee;
-            --primary-light: #4895ef;
-            --primary-dark: #3a0ca3;
-            --secondary-color: #f72585;
-            --background: #f8f9fa;
-            --text-color: #212529;
-            --text-light: #6c757d;
-            --white: #ffffff;
-            --success-color: #4cc9f0;
+            --primary: #4285F4;
+            --white: #FFFFFF;
+            --gray: #F5F5F5;
+            --dark-gray: #757575;
+            --black: #212121;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
         
         body {
-            background-color: var(--background);
-            color: var(--text-color);
+            background-color: var(--gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-        
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            color: var(--black);
         }
         
         .container {
-            display: flex;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        .hero-section {
-            flex: 1;
-            background: linear-gradient(-45deg, var(--primary-color), var(--primary-light), var(--success-color), var(--secondary-color));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: var(--white);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            z-index: 2;
-            text-align: center;
-            max-width: 600px;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            animation: pulse 3s infinite;
-        }
-        
-        .hero-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .floating-icons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .floating-icon {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.15);
-            font-size: 1.5rem;
-            animation: float 6s infinite ease-in-out;
-        }
-        
-        .auth-section {
-            width: 450px;
             background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        p.subtitle {
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+        
+        .tabs {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 3rem;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
         
-        .auth-container {
-            width: 100%;
-        }
-        
-        .auth-switcher {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .auth-tab {
-            padding: 0.75rem 1.5rem;
+        .tab {
+            flex: 1;
+            padding: 12px;
             cursor: pointer;
             font-weight: 500;
-            color: var(--text-light);
-            position: relative;
-            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
         }
         
-        .auth-tab.active {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .auth-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 3px 3px 0 0;
-        }
-        
-        .auth-form {
-            display: none;
-        }
-        
-        .auth-form.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .tab.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
+            margin-bottom: 20px;
+            text-align: left;
         }
         
-        .form-label {
+        label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
+            margin-bottom: 8px;
+            font-size: 14px;
         }
         
-        .form-control {
+        input {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
         }
         
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
-            outline: none;
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 8px;
         }
         
         .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
             width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 20px;
         }
         
         .btn-primary {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-        
-        .btn-google {
-            background-color: var(--white);
-            color: var(--text-color);
-            border: 1px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .btn-google:hover {
-            border-color: #ddd;
-            background-color: #f8f9fa;
         }
         
         .divider {
             display: flex;
             align-items: center;
-            margin: 1.5rem 0;
-            color: var(--text-light);
-            font-size: 0.9rem;
+            margin: 20px 0;
+            color: var(--dark-gray);
         }
         
         .divider::before, .divider::after {
             content: '';
             flex: 1;
             height: 1px;
-            background-color: #e9ecef;
-            margin: 0 0.5rem;
+            background-color: #ddd;
+            margin: 0 10px;
         }
         
-        .auth-footer {
-            margin-top: 1.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-light);
+        .btn-google {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
-        .auth-footer a {
-            color: var(--primary-color);
+        .footer-text {
+            font-size: 14px;
+            color: var(--dark-gray);
+        }
+        
+        .footer-text a {
+            color: var(--primary);
             text-decoration: none;
             font-weight: 500;
         }
-        
-        .auth-footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .forgot-password {
-            display: block;
-            text-align: right;
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            margin-top: 0.5rem;
-        }
-        
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .hero-section {
-                padding: 3rem 1rem;
-                min-height: 300px;
-            }
-            
-            .auth-section {
-                width: 100%;
-                max-width: 500px;
-                margin: -50px auto 0;
-                border-radius: 20px 20px 0 0;
-                box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
-                padding: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .auth-section {
-                padding: 1.5rem;
-            }
-            
-            .auth-tab {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .hero-title {
-                font-size: 1.8rem;
-            }
-        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <div class="container">
-        <div class="hero-section">
-            <div class="floating-icons">
-                <!-- Floating icons for decoration -->
-                <i class="fas fa-heart floating-icon" style="top: 10%; left: 15%; animation-delay: 0s;"></i>
-                <i class="fas fa-comment floating-icon" style="top: 25%; left: 75%; animation-delay: 1s;"></i>
-                <i class="fas fa-share-alt floating-icon" style="top: 65%; left: 10%; animation-delay: 2s;"></i>
-                <i class="fas fa-thumbs-up floating-icon" style="top: 80%; left: 70%; animation-delay: 3s;"></i>
-                <i class="fas fa-star floating-icon" style="top: 40%; left: 50%; animation-delay: 0.5s;"></i>
-                <i class="fas fa-camera floating-icon" style="top: 15%; left: 60%; animation-delay: 1.5s;"></i>
-            </div>
-            <div class="hero-content">
-                <div class="logo">zallshop</div>
-                <h1 class="hero-title">Bergabung dengan Komunitas Kami</h1>
-                <p class="hero-subtitle">Temukan teman baru, bagikan momen berharga, dan jelajahi dunia yang penuh inspirasi.</p>
-            </div>
+        <h1>Bergabung dengan Komunitas Kami</h1>
+        <p class="subtitle">Temukan teman baru, bagikan momen berharga, dan jelajahi dunia yang penuh inspirasi.</p>
+        
+        <div class="tabs">
+            <div class="tab active">Masuk</div>
+            <div class="tab">Daftar</div>
         </div>
         
-        <div class="auth-section">
-            <div class="auth-container">
-                <div class="auth-switcher">
-                    <div class="auth-tab active" data-tab="login">Masuk</div>
-                    <div class="auth-tab" data-tab="register">Daftar</div>
-                </div>
-                
-                <!-- Login Form -->
-                <div class="auth-form active" id="login-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="login-email" class="form-label">Email atau Username</label>
-                            <input type="text" id="login-email" class="form-control" placeholder="Masukkan email atau username">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="login-password" class="form-label">Password</label>
-                            <input type="password" id="login-password" class="form-control" placeholder="Masukkan password">
-                            <a href="#" class="forgot-password">Lupa password?</a>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Masuk</button>
-                        
-                        <div class="divider">atau</div>
-                        
-                        <button type="button" class="btn btn-google">
-                            <i class="fab fa-google"></i> Lanjutkan dengan Google
-                        </button>
-                        
-                        <div class="auth-footer">
-                            Belum punya akun? <a href="#" class="switch-tab" data-tab="register">Daftar sekarang</a>
-                        </div>
-                    </form>
-                </div>
-                
-                <!-- Register Form -->
-                <div class="auth-form" id="register-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="register-name" class="form-label">Nama Lengkap</label>
-                            <input type="text" id="register-name" class="form-control" placeholder="Masukkan nama lengkap">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-username" class="form-label">Username</label>
-                            <input type="text" id="register-username" class="form-control" placeholder="Buat username unik">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-email" class="form-label">Email</label>
-                            <input type="email" id="register-email" class="form-control" placeholder="Masukkan email aktif">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-password" class="form-label">Password</label>
-                            <input type="password" id="register-password" class="form-control" placeholder="Buat password kuat">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-confirm-password" class="form-label">Konfirmasi Password</label>
-                            <input type="password" id="register-confirm-password" class="form-control" placeholder="Ulangi password">
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Daftar Sekarang</button>
-                        
-                        <div class="divider">atau</div>
-                        
-                        <button type="button" class="btn btn-google">
-                            <i class="fab fa-google"></i> Lanjutkan dengan Google
-                        </button>
-                        
-                        <div class="auth-footer">
-                            Sudah punya akun? <a href="#" class="switch-tab" data-tab="login">Masuk disini</a>
-                        </div>
-                    </form>
-                </div>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email atau Username</label>
+                <input type="text" id="email" placeholder="Masukkan email atau username">
             </div>
-        </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan password">
+                <a href="#" class="forgot-password">Lupa password?</a>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Masuk</button>
+            
+            <div class="divider">atau</div>
+            
+            <!-- Tombol Google Sign-In -->
+            <div id="g_id_onload"
+                 data-client_id="CLIENT_ID_ANDA.apps.googleusercontent.com"
+                 data-context="signin"
+                 data-ux_mode="popup"
+                 data-login_uri="https://zallhosting.github.io/callback.html"
+                 data-auto_prompt="false">
+            </div>
+            
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-shape="rectangular"
+                 data-theme="outline"
+                 data-text="continue_with"
+                 data-size="large"
+                 data-logo_alignment="left"
+                 data-width="320">
+            </div>
+            
+            <p class="footer-text">Belum punya akun? <a href="#">Daftar sekarang</a></p>
+        </form>
     </div>
-    
+
     <script>
-        // Tab switching functionality
-        const tabs = document.querySelectorAll('.auth-tab');
-        const forms = document.querySelectorAll('.auth-form');
-        const switchTabLinks = document.querySelectorAll('.switch-tab');
+        // Ganti dengan Client ID Anda dari Google Cloud Console
+        const CLIENT_ID = 'CLIENT_ID_ANDA.apps.googleusercontent.com';
         
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
-                
-                // Update active tab
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show corresponding form
-                forms.forEach(form => {
-                    form.classList.remove('active');
-                    if (form.id === `${tabId}-form`) {
-                        form.classList.add('active');
-                    }
-                });
+        // Inisialisasi Google Sign-In
+        function handleCredentialResponse(response) {
+            console.log("ID Token: " + response.credential);
+            
+            // Kirim token ke server atau proses di frontend
+            fetch('/auth/google', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: response.credential })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Login berhasil dengan: " + data.email);
+                // Redirect ke halaman setelah login
+                // window.location.href = '/dashboard';
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Login gagal");
             });
-        });
-        
-        // Switch tab from footer links
-        switchTabLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tabId = link.getAttribute('data-tab');
-                
-                // Find and click the corresponding tab
-                tabs.forEach(tab => {
-                    if (tab.getAttribute('data-tab') === tabId) {
-                        tab.click();
-                    }
-                });
-            });
-        });
-        
-        // Form submission
-        const loginForm = document.getElementById('login-form').querySelector('form');
-        const registerForm = document.getElementById('register-form').querySelector('form');
-        
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add your login logic here
-            console.log('Login submitted');
-            
-            // Simulate loading
-            const submitBtn = loginForm.querySelector('.btn-primary');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.innerHTML = 'Masuk';
-                submitBtn.disabled = false;
-                // Redirect or show success message
-            }, 1500);
-        });
-        
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add your registration logic here
-            console.log('Register submitted');
-            
-            // Simulate loading
-            const submitBtn = registerForm.querySelector('.btn-primary');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mendaftarkan...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.innerHTML = 'Daftar Sekarang';
-                submitBtn.disabled = false;
-                // Redirect or show success message
-            }, 1500);
-        });
-        
-        // Add floating icons dynamically
-        const floatingIconsContainer = document.querySelector('.floating-icons');
-        const icons = ['heart', 'comment', 'share-alt', 'thumbs-up', 'star', 'camera', 'image', 'video', 'smile', 'user'];
-        
-        for (let i = 0; i < 15; i++) {
-            const icon = document.createElement('i');
-            icon.className = `fas fa-${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
-            
-            // Random position
-            const top = Math.random() * 100;
-            const left = Math.random() * 100;
-            const delay = Math.random() * 5;
-            const duration = 5 + Math.random() * 5;
-            
-            icon.style.top = `${top}%`;
-            icon.style.left = `${left}%`;
-            icon.style.animationDelay = `${delay}s`;
-            icon.style.animationDuration = `${duration}s`;
-            
-            floatingIconsContainer.appendChild(icon);
         }
+        
+        // Fungsi untuk toggle tab
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
