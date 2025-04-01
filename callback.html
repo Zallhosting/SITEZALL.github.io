@@ -1,1 +1,25 @@
-590210843219-0dhpg2s9f7ha6pavnkde8u5r1u45mco5.apps.googleusercontent.com
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Login Google</title>
+    <script src="590210843219-0dhpg2s9f7ha6pavnkde8u5r1u45mco5.apps.googleusercontent.com
+" async></script>
+</head>
+<body>
+    <script>
+        function handleCredentialResponse(response) {
+            parent.postMessage({
+                type: 'google-auth',
+                credential: response.credential
+            }, 'https://zallhosting.github.io');
+        }
+        window.onload = function() {
+            google.accounts.id.initialize({
+                client_id: 'CLIENT_ID_ANDA.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.prompt();
+        };
+    </script>
+</body>
+</html>
