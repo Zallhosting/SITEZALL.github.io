@@ -3,212 +3,528 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zallshop - Bergabung dengan Komunitas Kami</title>
+    <title>zallshop | Komunitas Digital Berkualitas</title>
     <style>
         :root {
-            --primary: #4285F4;
-            --white: #FFFFFF;
-            --gray: #F5F5F5;
-            --dark-gray: #757575;
-            --black: #212121;
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --primary-dark: #3a0ca3;
+            --secondary: #f72585;
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #e9ecef;
+            --gray-500: #adb5bd;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --error: #ef233c;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-        
+
         body {
-            background-color: var(--gray);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: var(--black);
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
         }
-        
-        .container {
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Navigasi Profesional */
+        .navbar {
             background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            padding: 40px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        p.subtitle {
-            color: var(--dark-gray);
-            margin-bottom: 30px;
-        }
-        
-        .tabs {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
-        .tab {
-            flex: 1;
-            padding: 12px;
-            cursor: pointer;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 1.75rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--gray-700);
+            text-decoration: none;
             font-weight: 500;
-            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
         }
-        
-        .tab.active {
-            border-bottom: 2px solid var(--primary);
+
+        .nav-link:hover {
             color: var(--primary);
         }
-        
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
         }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        
-        input {
+
+        .nav-link:hover::after {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
         }
-        
+
+        /* Konten Utama */
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 72px);
+        }
+
+        .hero-section {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary-light), var(--success));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            background-color: rgba(255,255,255,0.2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Dekorasi Hero */
+        .hero-decoration {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .circle {
+            border-radius: 50%;
+            background: var(--white);
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 50px;
+            left: -50px;
+        }
+
+        /* Auth Section */
+        .auth-section {
+            width: 450px;
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.03);
+        }
+
+        .auth-container {
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .auth-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        .auth-subtitle {
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--gray-50);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+            outline: none;
+            background-color: var(--white);
+        }
+
         .forgot-password {
             display: block;
             text-align: right;
-            font-size: 14px;
+            font-size: 0.875rem;
             color: var(--primary);
             text-decoration: none;
-            margin-top: 8px;
+            margin-top: 0.5rem;
+            transition: all 0.2s ease;
         }
-        
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* Button Styles */
         .btn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            width: 100%;
         }
-        
+
         .btn-primary {
             background-color: var(--primary);
             color: var(--white);
         }
-        
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-google {
+            background-color: var(--white);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-100);
+            margin-top: 1rem;
+        }
+
+        .btn-google:hover {
+            border-color: var(--gray-500);
+            background-color: var(--gray-50);
+        }
+
         .divider {
             display: flex;
             align-items: center;
-            margin: 20px 0;
-            color: var(--dark-gray);
+            margin: 1.5rem 0;
+            color: var(--gray-500);
+            font-size: 0.875rem;
         }
-        
+
         .divider::before, .divider::after {
             content: '';
             flex: 1;
             height: 1px;
-            background-color: #ddd;
-            margin: 0 10px;
+            background-color: var(--gray-100);
+            margin: 0 0.5rem;
         }
-        
-        .btn-google {
-            background-color: var(--white);
-            border: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+
+        .auth-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-500);
         }
-        
-        .footer-text {
-            font-size: 14px;
-            color: var(--dark-gray);
-        }
-        
-        .footer-text a {
+
+        .auth-footer a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .hero-section {
+                padding: 3rem 1.5rem;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .auth-section {
+                width: 100%;
+                max-width: 500px;
+                margin: -50px auto 0;
+                border-radius: 20px 20px 0 0;
+                padding: 2rem;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .auth-section {
+                padding: 1.5rem;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Identity Services -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Bergabung dengan Komunitas Kami</h1>
-        <p class="subtitle">Temukan teman baru, bagikan momen berharga, dan jelajahi dunia yang penuh inspirasi.</p>
-        
-        <div class="tabs">
-            <div class="tab active">Masuk</div>
-            <div class="tab">Daftar</div>
-        </div>
-        
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Email atau Username</label>
-                <input type="text" id="email" placeholder="Masukkan email atau username">
+    
+    <!-- Konten Utama -->
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-decoration circle circle-1"></div>
+            <div class="hero-decoration circle circle-2"></div>
+            
+            <div class="hero-content">
+                <h1 class="hero-title">Bergabunglah dengan Komunitas Digital Berkualitas</h1>
+                <p class="hero-subtitle">Temukan pengalaman berbelanja terbaik dan jalin hubungan dengan komunitas yang inspiratif.</p>
+                
+                <ul class="hero-features">
+                    <li class="hero-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Keamanan transaksi terjamin</span>
+                    </li>
+                    <li class="hero-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Komunitas yang mendukung</span>
+                    </li>
+                    <li class="hero-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Pengalaman pengguna premium</span>
+                    </li>
+                </ul>
             </div>
-            
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Masukkan password">
-                <a href="#" class="forgot-password">Lupa password?</a>
+        </section>
+
+        <!-- Auth Section -->
+        <section class="auth-section">
+            <div class="auth-container">
+                <h2 class="auth-title">Masuk ke Akun Anda</h2>
+                <p class="auth-subtitle">Silakan masuk untuk mengakses semua fitur</p>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Alamat Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="contoh@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Masukkan password" required>
+                        <a href="#" class="forgot-password">Lupa password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Masuk
+                    </button>
+                    
+                    <div class="divider">atau lanjutkan dengan</div>
+                    
+                    <!-- Google Sign-In Button -->
+                    <div id="g_id_onload"
+                         data-client_id="CLIENT_ID_ANDA.apps.googleusercontent.com"
+                         data-context="signin"
+                         data-ux_mode="popup"
+                         data-login_uri="https://zallhosting.github.io/callback.html"
+                         data-auto_prompt="false">
+                    </div>
+                    
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="outline"
+                         data-text="continue_with"
+                         data-size="large"
+                         data-logo_alignment="left"
+                         data-width="300">
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Belum punya akun? <a href="#" id="switch-to-register">Daftar sekarang</a>
+                    </div>
+                </form>
+
+                <!-- Register Form (Hidden by default) -->
+                <form id="register-form" style="display: none;">
+                    <h2 class="auth-title">Buat Akun Baru</h2>
+                    <p class="auth-subtitle">Bergabunglah dengan komunitas kami sekarang</p>
+                    
+                    <div class="form-group">
+                        <label for="reg-name" class="form-label">Nama Lengkap</label>
+                        <input type="text" id="reg-name" class="form-control" placeholder="Nama lengkap Anda" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-email" class="form-label">Alamat Email</label>
+                        <input type="email" id="reg-email" class="form-control" placeholder="contoh@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-password" class="form-label">Password</label>
+                        <input type="password" id="reg-password" class="form-control" placeholder="Minimal 8 karakter" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Daftar Sekarang
+                    </button>
+                    
+                    <div class="divider">atau daftar dengan</div>
+                    
+                    <!-- Google Sign-In Button for Register -->
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="outline"
+                         data-text="continue_with"
+                         data-size="large"
+                         data-logo_alignment="left"
+                         data-width="300">
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Sudah punya akun? <a href="#" id="switch-to-login">Masuk disini</a>
+                    </div>
+                </form>
             </div>
-            
-            <button type="submit" class="btn btn-primary">Masuk</button>
-            
-            <div class="divider">atau</div>
-            
-            <!-- Tombol Google Sign-In -->
-            <div id="g_id_onload"
-                 data-client_id="CLIENT_ID_ANDA.apps.googleusercontent.com"
-                 data-context="signin"
-                 data-ux_mode="popup"
-                 data-login_uri="https://zallhosting.github.io/callback.html"
-                 data-auto_prompt="false">
-            </div>
-            
-            <div class="g_id_signin"
-                 data-type="standard"
-                 data-shape="rectangular"
-                 data-theme="outline"
-                 data-text="continue_with"
-                 data-size="large"
-                 data-logo_alignment="left"
-                 data-width="320">
-            </div>
-            
-            <p class="footer-text">Belum punya akun? <a href="#">Daftar sekarang</a></p>
-        </form>
+        </section>
     </div>
 
     <script>
-        // Ganti dengan Client ID Anda dari Google Cloud Console
-        const CLIENT_ID = 'CLIENT_ID_ANDA.apps.googleusercontent.com';
-        
         // Inisialisasi Google Sign-In
         function handleCredentialResponse(response) {
             console.log("ID Token: " + response.credential);
             
-            // Kirim token ke server atau proses di frontend
-            fetch('/auth/google', {
+            // Kirim token ke backend
+            fetch('https://your-api-endpoint.com/auth/google', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -217,21 +533,49 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert("Login berhasil dengan: " + data.email);
-                // Redirect ke halaman setelah login
-                // window.location.href = '/dashboard';
+                // Redirect setelah login sukses
+                window.location.href = "/dashboard.html";
             })
             .catch(error => {
                 console.error("Error:", error);
-                alert("Login gagal");
+                alert("Terjadi kesalahan saat login");
             });
         }
-        
-        // Fungsi untuk toggle tab
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
+
+        // Toggle antara Login dan Register Form
+        document.getElementById('switch-to-register').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        });
+
+        document.getElementById('switch-to-login').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        });
+
+        // Form Submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Implementasi login
+            console.log("Login form submitted");
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Implementasi registrasi
+            console.log("Register form submitted");
+        });
+
+        // Animasi untuk semua form input
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentNode.querySelector('.form-label').style.color = 'var(--primary)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentNode.querySelector('.form-label').style.color = 'var(--gray-700)';
             });
         });
     </script>
